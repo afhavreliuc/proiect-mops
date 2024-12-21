@@ -18,7 +18,7 @@ const ShazamModal: React.FC = () => {
           width={28}
           height={28}
         />
-        <span>Shazam a Sosng</span>
+        <span>Shazam a Song</span>
         <span></span>
       </button>
       {isModalOpen && (
