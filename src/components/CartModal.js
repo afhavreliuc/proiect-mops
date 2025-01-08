@@ -37,7 +37,7 @@ const CartModal = ({ cartItems, isOpen, closeModal, removeFromCart }) => {
               </li>
             ))}
           </ul>
-            <h3>Cost pentru transport: {totalPrice > 100 ? 0 : shippingCost}</h3>
+            <h3>Cost pentru transport: {totalPrice >= 100 ? 0 : shippingCost}</h3>
             <hr />
             <h3>Total: {totalPrice} RON</h3>
           </div>
