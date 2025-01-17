@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "@/lib/features/AuthSlice";
 import { AppDispatch, RootState } from "@/lib/store";
+import React from "react";
 
 const Header = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -16,28 +17,28 @@ const Header = () => {
 
   return (
     <div className="h-28 w-full flex items-center justify-between bg-schwarzwald-green px-4">
-      <div className="flex space-x-4">
-        {currentUser ? (
-          <>
-            <span className="text-white">Welcome, {currentUser.displayName || currentUser.email}</span>
-            <Link href="/disks" className="text-white">
-              Disks
-            </Link>
-            <button onClick={handleLogout} className="text-white">
-              Logout
-            </button>
-          </>
-        ) : (
-          <>
-            <Link href="/login" className="text-white">
-              Login
-            </Link>
-            <Link href="/signup" className="text-white">
-              Sign Up
-            </Link>
-          </>
-        )}
-      </div>
+    <div className="flex space-x-4">
+      <Link href="/disks" className="text-white">
+        Disks
+      </Link>
+      {currentUser ? (
+        <>
+          <span className="text-white">Welcome, {currentUser.displayName || currentUser.email}</span>
+          <button onClick={handleLogout} className="text-white">
+            Logout
+          </button>
+        </>
+      ) : (
+        <>
+          <Link href="/login" className="text-white">
+            Login
+          </Link>
+          <Link href="/signup" className="text-white">
+            Sign Up
+          </Link>
+        </>
+      )}
+    </div>
       <Link href="/" className="flex items-center">
         <Image
           src="/logo.png"

@@ -3,20 +3,14 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
-import CartModal from "@/components/CartModal";
-import DiskDetailsModal from "@/components/DiskDetailsModal";
-import { RootState } from "@/store";
+import DiskDetailsModal from "../../components/DiskDetailsModal";
+import { RootState } from "../../lib/store";
+import CartModal from "../../components/CartModal";
+import FavoritesModal from "../../components/FavoritesModal";
 
 const DisksPage = () => {
   const router = useRouter();
   const { currentUser } = useSelector((state: RootState) => state.auth);
-
-  // Redirect to the main page if not logged in
-  useEffect(() => {
-    if (!currentUser) {
-      router.push("/"); // Redirect to the main page
-    }
-  }, [currentUser, router]);
 
   const [disks, setDisks] = useState<any[]>([
     { id: 1, title: "Disk One", label: "Label A", price: 10, details: "This is a great album with amazing tracks." },
@@ -29,8 +23,22 @@ const DisksPage = () => {
   const [selectedDisk, setSelectedDisk] = useState<any>(null);
   const [cartItems, setCartItems] = useState<{ title: string; price: number; id: number }[]>([]);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [favorites, setFavorites] = useState<number[]>(() => {
+    if (typeof window !== 'undefined') {
+      const stored = localStorage.getItem('favorites');
+      return stored ? JSON.parse(stored) : [];
+    }
+    return [];
+  });
+  const [isFavoritesOpen, setFavoritesOpen] = useState(false);
+
+  const favoriteDisks = disks.filter(disk => favorites.includes(disk.id));
 
   const addToCart = (disk: { title: string; price: number; id: number }) => {
+    if (!currentUser) {
+      router.push('/login');
+      return;
+    }
     const exists = cartItems.find(item => item.id === disk.id);
     if (!exists) {
       setCartItems([...cartItems, { ...disk, id: disk.id }]);
@@ -71,38 +79,80 @@ const DisksPage = () => {
     setDetailsOpen(true);
   };
 
+  const handleToggleFavorite = (id: number) => {
+    if (!currentUser) {
+      router.push('/login');
+      return;
+    }
+    setFavorites(prev => {
+      const newFavorites = prev.includes(id) 
+        ? prev.filter(itemId => itemId !== id)
+        : [...prev, id];
+      localStorage.setItem('favorites', JSON.stringify(newFavorites));
+      return newFavorites;
+    });
+  };
+
   return (
     <div className="flex flex-col items-center">
       <h1 className="text-4xl mb-4">Search for Disks</h1>
-      <input
-        type="text"
-        placeholder="Search by title..."
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        className="mb-4 p-2 border border-gray-300 rounded"
-      />
-      <button
-        onClick={() => {
-          if (cartItems.length > 0) {
-            setCartOpen(true);
-          }
-        }}
-        className="mb-4 px-4 py-2 bg-blue-500 text-white rounded"
-      >
-        Open Cart
-      </button>
+      <div className="flex gap-4 mb-4">
+        <input
+          type="text"
+          placeholder="Search by title..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="p-2 border border-gray-300 rounded"
+        />
+        {currentUser && (
+          <>
+            <button
+              onClick={() => setFavoritesOpen(true)}
+              className="px-4 py-2 bg-yellow-500 text-white rounded"
+            >
+              View Favorites ({favoriteDisks.length})
+            </button>
+            <button
+              onClick={() => {
+                if (cartItems.length > 0) {
+                  setCartOpen(true);
+                }
+              }}
+              className="px-4 py-2 bg-blue-500 text-white rounded"
+            >
+              Open Cart
+            </button>
+          </>
+        )}
+      </div>
       <ul className="list-disc">
-        {filteredDisks.map(disk => (
-          <li key={disk.id} className="mb-2">
-            {disk.title} - {disk.label}
-            <button onClick={() => addToCart({ title: disk.title, price: disk.price, id: disk.id })} className="ml-2 px-2 py-1 bg-green-500 text-white rounded">
-              Add to Cart
-            </button>
-            <button onClick={() => openDetails(disk)} className="ml-2 px-2 py-1 bg-blue-500 text-white rounded">
-              Details
-            </button>
-          </li>
-        ))}
+        {filteredDisks.length === 0 ? (
+          <li className="text-red-500">No disks found.</li>
+        ) : (
+          filteredDisks.map(disk => (
+            <li key={disk.id} className="mb-2 flex items-center gap-2">
+              {disk.title} - {disk.label}
+              <button
+                onClick={() => handleToggleFavorite(disk.id)}
+                className={`px-2 py-1 ${favorites.includes(disk.id) ? 'text-yellow-500' : 'text-gray-500'}`}
+              >
+                ★
+              </button>
+              <button 
+                onClick={() => addToCart({ title: disk.title, price: disk.price, id: disk.id })} 
+                className="px-2 py-1 bg-green-500 text-white rounded"
+              >
+                Add to Cart
+              </button>
+              <button 
+                onClick={() => openDetails(disk)} 
+                className="px-2 py-1 bg-blue-500 text-white rounded"
+              >
+                Details
+              </button>
+            </li>
+          ))
+        )}
       </ul>
       <CartModal 
         isOpen={isCartOpen} 
@@ -112,11 +162,20 @@ const DisksPage = () => {
         shippingCost={shippingCost} 
         onRemove={removeFromCart} 
         onClearCart={clearCart}
+        onToggleFavorite={handleToggleFavorite}
+        favorites={favorites}
       />
       <DiskDetailsModal 
         isOpen={isDetailsOpen} 
         onClose={() => setDetailsOpen(false)} 
         disk={selectedDisk} 
+      />
+      <FavoritesModal
+        isOpen={isFavoritesOpen}
+        onClose={() => setFavoritesOpen(false)}
+        favoriteDisks={favoriteDisks}
+        onToggleFavorite={handleToggleFavorite}
+        onAddToCart={addToCart}
       />
     </div>
   );
