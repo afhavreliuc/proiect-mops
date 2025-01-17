@@ -9,11 +9,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRouter } from "next/navigation";
+import Notification from '../../components/common/Notification';
+import React, {useState} from "react";
+import LoadingSpinner from '../../components/common/LoadingSpinner'
+
 
 const LoginPage = () => {
-  const { currentUser } = useSelector((state: RootState) => state.auth);
+  const { currentUser, loading } = useSelector((state: RootState) => state.auth);
   const dispatch = useDispatch<AppDispatch>();
   const router = useRouter();
+  const [notification, setNotification] = useState<{
+    message: string;
+    type: 'success' | 'error';
+  } | null>(null);
 
   const handleLogin = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -23,6 +31,9 @@ const LoginPage = () => {
     const password = formData.get("password") as string;
 
     const result = await dispatch(login({ email, password }));
+    if (result.type === 'auth/login/rejected') {
+      setNotification({ message: result.payload as string, type: 'error' });
+    }
   };
 
   const handleGoogleLogin = async () => {
@@ -37,6 +48,13 @@ const LoginPage = () => {
 
   return (
     <div className="flex-1 w-full flex justify-center items-center">
+      {notification && (
+        <Notification
+          message={notification.message}
+          type={notification.type}
+          onClose={() => setNotification(null)}
+        />
+      )}
       <form
         onSubmit={handleLogin}
         className="relative bg-schwarzwald-green p-10 bg-opacity-80 text-white font-extralight justify-normal flex flex-col gap-8"
@@ -66,8 +84,14 @@ const LoginPage = () => {
           </button>
         </div>
 
-        <button type="submit" className="font-normal text-xl bg-black h-12">
-          Continue
+        <button 
+          type="submit" 
+          disabled={loading}
+          className={`font-normal text-xl bg-black h-12 flex justify-center items-center ${
+            loading ? 'opacity-70 cursor-not-allowed' : ''
+          }`}
+        >
+          {loading ? <LoadingSpinner /> : 'Continue'}
         </button>
 
         <div className="text-xl font-normal">
@@ -85,11 +109,20 @@ const LoginPage = () => {
 
         <button
           onClick={handleGoogleLogin}
-          className="px-2 font-normal text-xl border h-12 flex justify-between items-center"
+          disabled={loading}
+          className={`px-2 font-normal text-xl border h-12 flex justify-between items-center ${
+            loading ? 'opacity-70 cursor-not-allowed' : ''
+          }`}
         >
-          <FontAwesomeIcon icon={faGoogle} className="h-6 w-6" />
-          <span>Continue With Google</span>
-          <span></span>
+          {loading ? (
+            <LoadingSpinner />
+          ) : (
+            <>
+              <FontAwesomeIcon icon={faGoogle} className="h-6 w-6" />
+              <span>Continue With Google</span>
+              <span></span>
+            </>
+          )}
         </button>
 
         <Image

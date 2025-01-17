@@ -114,25 +114,55 @@ __turbopack_esm__({
     "default": (()=>__TURBOPACK__default__export__)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+;
+var _s = __turbopack_refresh__.signature();
 ;
 const CartModal = ({ isOpen, onClose, cartItems, totalPrice, shippingCost, onRemove, onClearCart, onToggleFavorite, favorites })=>{
+    _s();
+    const [showAddressForm, setShowAddressForm] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [address, setAddress] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({
+        street: '',
+        city: '',
+        state: '',
+        zipCode: '',
+        country: ''
+    });
     if (!isOpen) return null;
+    const handlePayment = ()=>{
+        if (showAddressForm && address.street && address.city && address.state && address.zipCode && address.country) {
+            // Process payment with address
+            console.log('Processing payment with address:', address);
+            onClearCart();
+            setShowAddressForm(false);
+            setAddress({
+                street: '',
+                city: '',
+                state: '',
+                zipCode: '',
+                country: ''
+            });
+        } else {
+            setShowAddressForm(true);
+        }
+    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "modal-overlay fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "modal bg-white rounded-lg p-4",
+            className: "modal bg-white rounded-lg p-4 max-w-lg w-full",
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                    className: "text-2xl",
+                    className: "text-2xl mb-4",
                     children: "Cart"
                 }, void 0, false, {
                     fileName: "[project]/src/components/CartModal.tsx",
-                    lineNumber: 31,
+                    lineNumber: 52,
                     columnNumber: 11
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
+                    className: "mb-4",
                     children: cartItems.map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                            className: "flex justify-between items-center",
+                            className: "flex justify-between items-center mb-2",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                     children: [
@@ -142,7 +172,7 @@ const CartModal = ({ isOpen, onClose, cartItems, totalPrice, shippingCost, onRem
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/CartModal.tsx",
-                                    lineNumber: 35,
+                                    lineNumber: 56,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -154,7 +184,7 @@ const CartModal = ({ isOpen, onClose, cartItems, totalPrice, shippingCost, onRem
                                             children: "★"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/CartModal.tsx",
-                                            lineNumber: 37,
+                                            lineNumber: 58,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -163,78 +193,190 @@ const CartModal = ({ isOpen, onClose, cartItems, totalPrice, shippingCost, onRem
                                             children: "Remove"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/CartModal.tsx",
-                                            lineNumber: 45,
+                                            lineNumber: 66,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/CartModal.tsx",
-                                    lineNumber: 36,
+                                    lineNumber: 57,
                                     columnNumber: 17
                                 }, this)
                             ]
                         }, item.id, true, {
                             fileName: "[project]/src/components/CartModal.tsx",
-                            lineNumber: 34,
+                            lineNumber: 55,
                             columnNumber: 15
                         }, this))
                 }, void 0, false, {
                     fileName: "[project]/src/components/CartModal.tsx",
-                    lineNumber: 32,
+                    lineNumber: 53,
                     columnNumber: 11
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                    className: "text-xl",
+                    className: "text-xl mb-2",
                     children: [
                         "Total Price: $",
                         totalPrice
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/CartModal.tsx",
-                    lineNumber: 52,
+                    lineNumber: 73,
                     columnNumber: 11
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
-                    className: "text-lg",
+                    className: "text-lg mb-4",
                     children: [
                         "Shipping Cost: $",
                         shippingCost
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/CartModal.tsx",
-                    lineNumber: 53,
+                    lineNumber: 74,
                     columnNumber: 11
                 }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                    onClick: onClearCart,
-                    className: "mt-4 px-4 py-2 bg-green-500 text-white rounded",
-                    children: "Pay"
-                }, void 0, false, {
+                showAddressForm && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "mb-4",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                            className: "text-xl mb-2",
+                            children: "Delivery Address"
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/CartModal.tsx",
+                            lineNumber: 78,
+                            columnNumber: 15
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "flex flex-col gap-2",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                    type: "text",
+                                    placeholder: "Street Address",
+                                    value: address.street,
+                                    onChange: (e)=>setAddress({
+                                            ...address,
+                                            street: e.target.value
+                                        }),
+                                    className: "p-2 border rounded",
+                                    required: true
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/CartModal.tsx",
+                                    lineNumber: 80,
+                                    columnNumber: 17
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                    type: "text",
+                                    placeholder: "City",
+                                    value: address.city,
+                                    onChange: (e)=>setAddress({
+                                            ...address,
+                                            city: e.target.value
+                                        }),
+                                    className: "p-2 border rounded",
+                                    required: true
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/CartModal.tsx",
+                                    lineNumber: 88,
+                                    columnNumber: 17
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                    type: "text",
+                                    placeholder: "State/Province",
+                                    value: address.state,
+                                    onChange: (e)=>setAddress({
+                                            ...address,
+                                            state: e.target.value
+                                        }),
+                                    className: "p-2 border rounded",
+                                    required: true
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/CartModal.tsx",
+                                    lineNumber: 96,
+                                    columnNumber: 17
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                    type: "text",
+                                    placeholder: "ZIP/Postal Code",
+                                    value: address.zipCode,
+                                    onChange: (e)=>setAddress({
+                                            ...address,
+                                            zipCode: e.target.value
+                                        }),
+                                    className: "p-2 border rounded",
+                                    required: true
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/CartModal.tsx",
+                                    lineNumber: 104,
+                                    columnNumber: 17
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                    type: "text",
+                                    placeholder: "Country",
+                                    value: address.country,
+                                    onChange: (e)=>setAddress({
+                                            ...address,
+                                            country: e.target.value
+                                        }),
+                                    className: "p-2 border rounded",
+                                    required: true
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/CartModal.tsx",
+                                    lineNumber: 112,
+                                    columnNumber: 17
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/components/CartModal.tsx",
+                            lineNumber: 79,
+                            columnNumber: 15
+                        }, this)
+                    ]
+                }, void 0, true, {
                     fileName: "[project]/src/components/CartModal.tsx",
-                    lineNumber: 54,
-                    columnNumber: 11
+                    lineNumber: 77,
+                    columnNumber: 13
                 }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                    onClick: onClose,
-                    className: "mt-4 px-4 py-2 bg-red-500 text-white rounded",
-                    children: "Close"
-                }, void 0, false, {
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "flex gap-2",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                            onClick: handlePayment,
+                            className: `px-4 py-2 text-white rounded ${showAddressForm && (!address.street || !address.city || !address.state || !address.zipCode || !address.country) ? 'bg-gray-500 cursor-not-allowed' : 'bg-green-500'}`,
+                            disabled: showAddressForm && (!address.street || !address.city || !address.state || !address.zipCode || !address.country),
+                            children: showAddressForm ? 'Confirm Payment' : 'Pay'
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/CartModal.tsx",
+                            lineNumber: 125,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                            onClick: onClose,
+                            className: "px-4 py-2 bg-red-500 text-white rounded",
+                            children: "Close"
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/CartModal.tsx",
+                            lineNumber: 136,
+                            columnNumber: 13
+                        }, this)
+                    ]
+                }, void 0, true, {
                     fileName: "[project]/src/components/CartModal.tsx",
-                    lineNumber: 57,
+                    lineNumber: 124,
                     columnNumber: 11
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/CartModal.tsx",
-            lineNumber: 30,
+            lineNumber: 51,
             columnNumber: 9
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/CartModal.tsx",
-        lineNumber: 29,
+        lineNumber: 50,
         columnNumber: 7
     }, this);
 };
+_s(CartModal, "5OWhPjtr6dTJBxfuFavIDDV2yrY=");
 _c = CartModal;
 const __TURBOPACK__default__export__ = CartModal;
 var _c;
@@ -425,6 +567,7 @@ const DisksPage = ()=>{
         }
     }["DisksPage.useState"]);
     const [isFavoritesOpen, setFavoritesOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [notification, setNotification] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
     const favoriteDisks = disks.filter((disk)=>favorites.includes(disk.id));
     const addToCart = (disk)=>{
         if (!currentUser) {
@@ -441,6 +584,15 @@ const DisksPage = ()=>{
                 }
             ]);
             setTotalPrice(totalPrice + disk.price);
+            setNotification({
+                message: 'Item added to cart successfully!',
+                type: 'success'
+            });
+        } else {
+            setNotification({
+                message: 'Item is already in cart',
+                type: 'error'
+            });
         }
     };
     const removeFromCart = (id)=>{
@@ -479,18 +631,31 @@ const DisksPage = ()=>{
                 id
             ];
             localStorage.setItem('favorites', JSON.stringify(newFavorites));
+            setNotification({
+                message: prev.includes(id) ? 'Removed from favorites' : 'Added to favorites',
+                type: 'success'
+            });
             return newFavorites;
         });
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "flex flex-col items-center",
         children: [
+            notification && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Notification, {
+                message: notification.message,
+                type: notification.type,
+                onClose: ()=>setNotification(null)
+            }, void 0, false, {
+                fileName: "[project]/src/app/disks/page.tsx",
+                lineNumber: 110,
+                columnNumber: 9
+            }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
                 className: "text-4xl mb-4",
                 children: "Search for Disks"
             }, void 0, false, {
                 fileName: "[project]/src/app/disks/page.tsx",
-                lineNumber: 98,
+                lineNumber: 116,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -504,7 +669,7 @@ const DisksPage = ()=>{
                         className: "p-2 border border-gray-300 rounded"
                     }, void 0, false, {
                         fileName: "[project]/src/app/disks/page.tsx",
-                        lineNumber: 100,
+                        lineNumber: 118,
                         columnNumber: 9
                     }, this),
                     currentUser && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
@@ -519,7 +684,7 @@ const DisksPage = ()=>{
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/disks/page.tsx",
-                                lineNumber: 109,
+                                lineNumber: 127,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -532,7 +697,7 @@ const DisksPage = ()=>{
                                 children: "Open Cart"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/disks/page.tsx",
-                                lineNumber: 115,
+                                lineNumber: 133,
                                 columnNumber: 13
                             }, this)
                         ]
@@ -540,7 +705,7 @@ const DisksPage = ()=>{
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/disks/page.tsx",
-                lineNumber: 99,
+                lineNumber: 117,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -550,7 +715,7 @@ const DisksPage = ()=>{
                     children: "No disks found."
                 }, void 0, false, {
                     fileName: "[project]/src/app/disks/page.tsx",
-                    lineNumber: 130,
+                    lineNumber: 148,
                     columnNumber: 11
                 }, this) : filteredDisks.map((disk)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                         className: "mb-2 flex items-center gap-2",
@@ -564,7 +729,7 @@ const DisksPage = ()=>{
                                 children: "★"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/disks/page.tsx",
-                                lineNumber: 135,
+                                lineNumber: 153,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -577,7 +742,7 @@ const DisksPage = ()=>{
                                 children: "Add to Cart"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/disks/page.tsx",
-                                lineNumber: 141,
+                                lineNumber: 159,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -586,18 +751,18 @@ const DisksPage = ()=>{
                                 children: "Details"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/disks/page.tsx",
-                                lineNumber: 147,
+                                lineNumber: 165,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, disk.id, true, {
                         fileName: "[project]/src/app/disks/page.tsx",
-                        lineNumber: 133,
+                        lineNumber: 151,
                         columnNumber: 13
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/app/disks/page.tsx",
-                lineNumber: 128,
+                lineNumber: 146,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$CartModal$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -612,7 +777,7 @@ const DisksPage = ()=>{
                 favorites: favorites
             }, void 0, false, {
                 fileName: "[project]/src/app/disks/page.tsx",
-                lineNumber: 157,
+                lineNumber: 175,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$DiskDetailsModal$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -621,7 +786,7 @@ const DisksPage = ()=>{
                 disk: selectedDisk
             }, void 0, false, {
                 fileName: "[project]/src/app/disks/page.tsx",
-                lineNumber: 168,
+                lineNumber: 186,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$FavoritesModal$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -632,17 +797,17 @@ const DisksPage = ()=>{
                 onAddToCart: addToCart
             }, void 0, false, {
                 fileName: "[project]/src/app/disks/page.tsx",
-                lineNumber: 173,
+                lineNumber: 191,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/disks/page.tsx",
-        lineNumber: 97,
+        lineNumber: 108,
         columnNumber: 5
     }, this);
 };
-_s(DisksPage, "jYyAadgw3x0jxUOD4xs+QWuT0io=", false, function() {
+_s(DisksPage, "Ntm44GHEwxIBOQ7kp0NCrk+//60=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"],
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSelector"]

@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Notification from './common/Notification';
+import LoadingSpinner from './common/LoadingSpinner';
+
 
 interface CartModalProps {
     isOpen: boolean;
@@ -23,15 +26,57 @@ const CartModal: React.FC<CartModalProps> = ({
     onToggleFavorite,
     favorites 
 }) => {
+    const [showAddressForm, setShowAddressForm] = useState(false);
+    const [address, setAddress] = useState({
+        street: '',
+        city: '',
+        state: '',
+        zipCode: '',
+        country: ''
+    });
+    const [notification, setNotification] = useState<{
+        message: string;
+        type: 'success' | 'error';
+    } | null>(null);
+    const [isProcessing, setIsProcessing] = useState(false);
+
     if (!isOpen) return null;
+
+    const handlePayment = async () => {
+        if (showAddressForm && address.street && address.city && address.state && address.zipCode && address.country) {
+            setIsProcessing(true);
+            try {
+                // Simulate payment processing
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                console.log('Processing payment with address:', address);
+                onClearCart();
+                setShowAddressForm(false);
+                setAddress({ street: '', city: '', state: '', zipCode: '', country: '' });
+                setNotification({ message: 'Payment processed successfully!', type: 'success' });
+            } finally {
+                setIsProcessing(false);
+            }
+        } else if (!showAddressForm) {
+            setShowAddressForm(true);
+        } else {
+            setNotification({ message: 'Please fill in all address fields', type: 'error' });
+        }
+    };
   
     return (
       <div className="modal-overlay fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-        <div className="modal bg-white rounded-lg p-4">
-          <h2 className="text-2xl">Cart</h2>
-          <ul>
+        {notification && (
+          <Notification
+            message={notification.message}
+            type={notification.type}
+            onClose={() => setNotification(null)}
+          />
+        )}
+        <div className="modal bg-white rounded-lg p-4 max-w-lg w-full">
+          <h2 className="text-2xl mb-4">Cart</h2>
+          <ul className="mb-4">
             {cartItems.map((item) => (
-              <li key={item.id} className="flex justify-between items-center">
+              <li key={item.id} className="flex justify-between items-center mb-2">
                 <span>{item.title} - ${item.price}</span>
                 <div className="flex gap-2">
                   <button
@@ -49,12 +94,73 @@ const CartModal: React.FC<CartModalProps> = ({
               </li>
             ))}
           </ul>
-          <h3 className="text-xl">Total Price: ${totalPrice}</h3>
-          <h4 className="text-lg">Shipping Cost: ${shippingCost}</h4>
-          <button onClick={onClearCart} className="mt-4 px-4 py-2 bg-green-500 text-white rounded">
-            Pay
-          </button>
-          <button onClick={onClose} className="mt-4 px-4 py-2 bg-red-500 text-white rounded">Close</button>
+          <h3 className="text-xl mb-2">Total Price: ${totalPrice}</h3>
+          <h4 className="text-lg mb-4">Shipping Cost: ${shippingCost}</h4>
+
+          {showAddressForm && (
+            <div className="mb-4">
+              <h3 className="text-xl mb-2">Delivery Address</h3>
+              <div className="flex flex-col gap-2">
+                <input
+                  type="text"
+                  placeholder="Street Address"
+                  value={address.street}
+                  onChange={(e) => setAddress({ ...address, street: e.target.value })}
+                  className="p-2 border rounded"
+                  required
+                />
+                <input
+                  type="text"
+                  placeholder="City"
+                  value={address.city}
+                  onChange={(e) => setAddress({ ...address, city: e.target.value })}
+                  className="p-2 border rounded"
+                  required
+                />
+                <input
+                  type="text"
+                  placeholder="State/Province"
+                  value={address.state}
+                  onChange={(e) => setAddress({ ...address, state: e.target.value })}
+                  className="p-2 border rounded"
+                  required
+                />
+                <input
+                  type="text"
+                  placeholder="ZIP/Postal Code"
+                  value={address.zipCode}
+                  onChange={(e) => setAddress({ ...address, zipCode: e.target.value })}
+                  className="p-2 border rounded"
+                  required
+                />
+                <input
+                  type="text"
+                  placeholder="Country"
+                  value={address.country}
+                  onChange={(e) => setAddress({ ...address, country: e.target.value })}
+                  className="p-2 border rounded"
+                  required
+                />
+              </div>
+            </div>
+          )}
+
+          <div className="flex gap-2">
+            <button 
+              onClick={handlePayment} 
+              disabled={isProcessing || (showAddressForm && (!address.street || !address.city || !address.state || !address.zipCode || !address.country))}
+              className={`px-4 py-2 text-white rounded flex justify-center items-center ${
+                isProcessing || (showAddressForm && (!address.street || !address.city || !address.state || !address.zipCode || !address.country))
+                  ? 'bg-gray-500 cursor-not-allowed'
+                  : 'bg-green-500'
+              }`}
+            >
+              {isProcessing ? <LoadingSpinner /> : (showAddressForm ? 'Confirm Payment' : 'Pay')}
+            </button>
+            <button onClick={onClose} className="px-4 py-2 bg-red-500 text-white rounded">
+              Close
+            </button>
+          </div>
         </div>
       </div>
     );

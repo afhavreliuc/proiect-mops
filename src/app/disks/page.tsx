@@ -7,10 +7,13 @@ import DiskDetailsModal from "../../components/DiskDetailsModal";
 import { RootState } from "../../lib/store";
 import CartModal from "../../components/CartModal";
 import FavoritesModal from "../../components/FavoritesModal";
+import Notification from '../../components/common/Notification';
+import LoadingSpinner from "@/components/common/LoadingSpinner";
 
 const DisksPage = () => {
   const router = useRouter();
   const { currentUser } = useSelector((state: RootState) => state.auth);
+  const [isLoading, setIsLoading] = useState(true);
 
   const [disks, setDisks] = useState<any[]>([
     { id: 1, title: "Disk One", label: "Label A", price: 10, details: "This is a great album with amazing tracks." },
@@ -31,6 +34,27 @@ const DisksPage = () => {
     return [];
   });
   const [isFavoritesOpen, setFavoritesOpen] = useState(false);
+  const [notification, setNotification] = useState<{
+    message: string;
+    type: 'success' | 'error';
+  } | null>(null);
+
+  useEffect(() => {
+    // Simulate loading disks data
+    const loadDisks = async () => {
+      try {
+        await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API call
+        setDisks([
+          { id: 1, title: "Disk One", label: "Label A", price: 10, details: "This is a great album with amazing tracks." },
+          { id: 2, title: "Disk Two", label: "Label B", price: 15, details: "A classic collection of timeless songs." },
+          { id: 3, title: "Disk Three", label: "Label C", price: 20, details: "An eclectic mix of genres and styles." },
+        ]);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    loadDisks();
+  }, []);
 
   const favoriteDisks = disks.filter(disk => favorites.includes(disk.id));
 
@@ -43,6 +67,9 @@ const DisksPage = () => {
     if (!exists) {
       setCartItems([...cartItems, { ...disk, id: disk.id }]);
       setTotalPrice(totalPrice + disk.price);
+      setNotification({ message: 'Item added to cart successfully!', type: 'success' });
+    } else {
+      setNotification({ message: 'Item is already in cart', type: 'error' });
     }
   };
 
@@ -89,12 +116,23 @@ const DisksPage = () => {
         ? prev.filter(itemId => itemId !== id)
         : [...prev, id];
       localStorage.setItem('favorites', JSON.stringify(newFavorites));
+      setNotification({ 
+        message: prev.includes(id) ? 'Removed from favorites' : 'Added to favorites', 
+        type: 'success' 
+      });
       return newFavorites;
     });
   };
 
   return (
     <div className="flex flex-col items-center">
+      {notification && (
+        <Notification
+          message={notification.message}
+          type={notification.type}
+          onClose={() => setNotification(null)}
+        />
+      )}
       <h1 className="text-4xl mb-4">Search for Disks</h1>
       <div className="flex gap-4 mb-4">
         <input
@@ -125,35 +163,41 @@ const DisksPage = () => {
           </>
         )}
       </div>
-      <ul className="list-disc">
-        {filteredDisks.length === 0 ? (
-          <li className="text-red-500">No disks found.</li>
-        ) : (
-          filteredDisks.map(disk => (
-            <li key={disk.id} className="mb-2 flex items-center gap-2">
-              {disk.title} - {disk.label}
-              <button
-                onClick={() => handleToggleFavorite(disk.id)}
-                className={`px-2 py-1 ${favorites.includes(disk.id) ? 'text-yellow-500' : 'text-gray-500'}`}
-              >
-                ★
-              </button>
-              <button 
-                onClick={() => addToCart({ title: disk.title, price: disk.price, id: disk.id })} 
-                className="px-2 py-1 bg-green-500 text-white rounded"
-              >
-                Add to Cart
-              </button>
-              <button 
-                onClick={() => openDetails(disk)} 
-                className="px-2 py-1 bg-blue-500 text-white rounded"
-              >
-                Details
-              </button>
-            </li>
-          ))
-        )}
-      </ul>
+      {isLoading ? (
+        <div className="flex justify-center items-center h-40">
+          <LoadingSpinner />
+        </div>
+      ) : (
+        <ul className="list-disc">
+          {filteredDisks.length === 0 ? (
+            <li className="text-red-500">No disks found.</li>
+          ) : (
+            filteredDisks.map(disk => (
+              <li key={disk.id} className="mb-2 flex items-center gap-2">
+                {disk.title} - {disk.label}
+                <button
+                  onClick={() => handleToggleFavorite(disk.id)}
+                  className={`px-2 py-1 ${favorites.includes(disk.id) ? 'text-yellow-500' : 'text-gray-500'}`}
+                >
+                  ★
+                </button>
+                <button 
+                  onClick={() => addToCart({ title: disk.title, price: disk.price, id: disk.id })} 
+                  className="px-2 py-1 bg-green-500 text-white rounded"
+                >
+                  Add to Cart
+                </button>
+                <button 
+                  onClick={() => openDetails(disk)} 
+                  className="px-2 py-1 bg-blue-500 text-white rounded"
+                >
+                  Details
+                </button>
+              </li>
+            ))
+          )}
+        </ul>
+      )}
       <CartModal 
         isOpen={isCartOpen} 
         onClose={() => setCartOpen(false)} 
