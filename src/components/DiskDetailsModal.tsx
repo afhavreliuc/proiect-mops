@@ -3,7 +3,13 @@ import React from "react";
 interface DiskDetailsModalProps {
   isOpen: boolean;
   onClose: () => void;
-  disk: { title: string; label: string; price: number; details: string };
+  disk: { title: string; label: string; price: number; details: string; format: string };
+}
+
+interface DiskDetailsModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  disk: { title: string; label: string; price: number; details: string; format: string };
 }
 
 const DiskDetailsModal: React.FC<DiskDetailsModalProps> = ({ isOpen, onClose, disk }) => {
@@ -16,6 +22,7 @@ const DiskDetailsModal: React.FC<DiskDetailsModalProps> = ({ isOpen, onClose, di
           <h2 className="text-2xl font-normal">{disk.title}</h2>
           <div className="flex flex-col gap-2">
             <p><span className="font-semibold">Label:</span> {disk.label}</p>
+            <p><span className="font-semibold">Format:</span> {disk.format}</p>
             <p><span className="font-semibold">Price:</span> ${disk.price}</p>
             <p><span className="font-semibold">Details:</span> {disk.details}</p>
           </div>

@@ -48,7 +48,7 @@ const DiskDetailsModal = ({ isOpen, onClose, disk })=>{
                         children: disk.title
                     }, void 0, false, {
                         fileName: "[project]/src/components/DiskDetailsModal.tsx",
-                        lineNumber: 16,
+                        lineNumber: 22,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -61,7 +61,7 @@ const DiskDetailsModal = ({ isOpen, onClose, disk })=>{
                                         children: "Label:"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/DiskDetailsModal.tsx",
-                                        lineNumber: 18,
+                                        lineNumber: 24,
                                         columnNumber: 16
                                     }, this),
                                     " ",
@@ -69,7 +69,25 @@ const DiskDetailsModal = ({ isOpen, onClose, disk })=>{
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/DiskDetailsModal.tsx",
-                                lineNumber: 18,
+                                lineNumber: 24,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "font-semibold",
+                                        children: "Format:"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/components/DiskDetailsModal.tsx",
+                                        lineNumber: 25,
+                                        columnNumber: 16
+                                    }, this),
+                                    " ",
+                                    disk.format
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/components/DiskDetailsModal.tsx",
+                                lineNumber: 25,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -79,7 +97,7 @@ const DiskDetailsModal = ({ isOpen, onClose, disk })=>{
                                         children: "Price:"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/DiskDetailsModal.tsx",
-                                        lineNumber: 19,
+                                        lineNumber: 26,
                                         columnNumber: 16
                                     }, this),
                                     " $",
@@ -87,7 +105,7 @@ const DiskDetailsModal = ({ isOpen, onClose, disk })=>{
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/DiskDetailsModal.tsx",
-                                lineNumber: 19,
+                                lineNumber: 26,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -97,7 +115,7 @@ const DiskDetailsModal = ({ isOpen, onClose, disk })=>{
                                         children: "Details:"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/DiskDetailsModal.tsx",
-                                        lineNumber: 20,
+                                        lineNumber: 27,
                                         columnNumber: 16
                                     }, this),
                                     " ",
@@ -105,13 +123,13 @@ const DiskDetailsModal = ({ isOpen, onClose, disk })=>{
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/DiskDetailsModal.tsx",
-                                lineNumber: 20,
+                                lineNumber: 27,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/DiskDetailsModal.tsx",
-                        lineNumber: 17,
+                        lineNumber: 23,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -120,23 +138,23 @@ const DiskDetailsModal = ({ isOpen, onClose, disk })=>{
                         children: "Close"
                     }, void 0, false, {
                         fileName: "[project]/src/components/DiskDetailsModal.tsx",
-                        lineNumber: 22,
+                        lineNumber: 29,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/DiskDetailsModal.tsx",
-                lineNumber: 15,
+                lineNumber: 21,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/components/DiskDetailsModal.tsx",
-            lineNumber: 14,
+            lineNumber: 20,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/DiskDetailsModal.tsx",
-        lineNumber: 13,
+        lineNumber: 19,
         columnNumber: 5
     }, this);
 };
@@ -667,28 +685,33 @@ const DisksPage = ()=>{
     const [isLoading, setIsLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(true);
     const [disks, setDisks] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([
         {
-            id: 1,
-            title: "Disk One",
-            label: "Label A",
-            price: 10,
-            details: "This is a great album with amazing tracks."
+            id: 4,
+            title: "Recent door customer apply",
+            label: "Coleman-Clark",
+            price: 35,
+            format: "CD",
+            details: "A collection of contemporary tracks exploring modern themes."
         },
         {
-            id: 2,
-            title: "Disk Two",
-            label: "Label B",
-            price: 15,
-            details: "A classic collection of timeless songs."
+            id: 15,
+            title: "Wind house financial language news",
+            label: "Lopez-Williams",
+            price: 49,
+            format: "Digital",
+            details: "An innovative fusion of electronic and acoustic elements."
         },
         {
-            id: 3,
-            title: "Disk Three",
-            label: "Label C",
-            price: 20,
-            details: "An eclectic mix of genres and styles."
+            id: 19,
+            title: "Consider education",
+            label: "Valenzuela, McIntyre and Cobb",
+            price: 17,
+            format: "CD",
+            details: "A thoughtful compilation of educational and inspirational music."
         }
     ]);
     const [searchTerm, setSearchTerm] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
+    const [searchType, setSearchType] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("title");
+    const [selectedFormat, setSelectedFormat] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
     const [isCartOpen, setCartOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const [isDetailsOpen, setDetailsOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const [selectedDisk, setSelectedDisk] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
@@ -702,6 +725,8 @@ const DisksPage = ()=>{
     });
     const [isFavoritesOpen, setFavoritesOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const [notification, setNotification] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
+    // Get unique formats
+    const formats = Array.from(new Set(disks.map((disk)=>disk.format)));
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         // Simulate loading disks data
         const loadDisks = async ()=>{
@@ -709,25 +734,28 @@ const DisksPage = ()=>{
                 await new Promise((resolve)=>setTimeout(resolve, 1000)); // Simulate API call
                 setDisks([
                     {
-                        id: 1,
-                        title: "Disk One",
-                        label: "Label A",
-                        price: 10,
-                        details: "This is a great album with amazing tracks."
+                        id: 4,
+                        title: "Recent door customer apply",
+                        label: "Coleman-Clark",
+                        price: 35,
+                        format: "CD",
+                        details: "A collection of contemporary tracks exploring modern themes."
                     },
                     {
-                        id: 2,
-                        title: "Disk Two",
-                        label: "Label B",
-                        price: 15,
-                        details: "A classic collection of timeless songs."
+                        id: 15,
+                        title: "Wind house financial language news",
+                        label: "Lopez-Williams",
+                        price: 49,
+                        format: "Digital",
+                        details: "An innovative fusion of electronic and acoustic elements."
                     },
                     {
-                        id: 3,
-                        title: "Disk Three",
-                        label: "Label C",
-                        price: 20,
-                        details: "An eclectic mix of genres and styles."
+                        id: 19,
+                        title: "Consider education",
+                        label: "Valenzuela, McIntyre and Cobb",
+                        price: 17,
+                        format: "CD",
+                        details: "A thoughtful compilation of educational and inspirational music."
                     }
                 ]);
             } finally{
@@ -778,11 +806,16 @@ const DisksPage = ()=>{
     const clearCart = ()=>{
         setCartItems([]);
         setTotalPrice(0);
-        setCartOpen(false); // Optionally close the cart modal
+        setCartOpen(false);
     };
-    const filteredDisks = disks.filter((disk)=>disk.title.toLowerCase().includes(searchTerm.toLowerCase()));
+    // Filter disks based on all criteria
+    const filteredDisks = disks.filter((disk)=>{
+        const matchesSearch = searchType === "title" ? disk.title.toLowerCase().includes(searchTerm.toLowerCase()) : disk.label.toLowerCase().includes(searchTerm.toLowerCase());
+        const matchesFormat = !selectedFormat || disk.format === selectedFormat;
+        return matchesSearch && matchesFormat;
+    });
     // Shipping cost logic
-    const shippingCost = totalPrice >= 20 ? 0 : 5; // $5 shipping if total is $20 or less
+    const shippingCost = totalPrice >= 40 ? 0 : 5;
     const finalPrice = totalPrice + shippingCost;
     const openDetails = (disk)=>{
         setSelectedDisk(disk);
@@ -807,7 +840,7 @@ const DisksPage = ()=>{
         });
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "flex flex-col items-center",
+        className: "flex flex-col items-center p-4",
         children: [
             notification && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$common$2f$Notification$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                 message: notification.message,
@@ -815,77 +848,149 @@ const DisksPage = ()=>{
                 onClose: ()=>setNotification(null)
             }, void 0, false, {
                 fileName: "[project]/src/app/disks/page.tsx",
-                lineNumber: 130,
+                lineNumber: 183,
                 columnNumber: 9
             }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                className: "text-4xl mb-4",
-                children: "Search for Disks"
-            }, void 0, false, {
-                fileName: "[project]/src/app/disks/page.tsx",
-                lineNumber: 136,
-                columnNumber: 7
-            }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "flex gap-4 mb-4",
+                className: "w-full max-w-4xl mb-8",
                 children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                        type: "text",
-                        placeholder: "Search by title...",
-                        value: searchTerm,
-                        onChange: (e)=>setSearchTerm(e.target.value),
-                        className: "p-2 border border-gray-300 rounded"
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                        className: "text-2xl mb-4",
+                        children: "View Discs by Format, Artist, or Search Results"
                     }, void 0, false, {
                         fileName: "[project]/src/app/disks/page.tsx",
-                        lineNumber: 138,
+                        lineNumber: 190,
                         columnNumber: 9
                     }, this),
-                    currentUser && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "flex flex-wrap gap-4 mb-4",
                         children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                onClick: ()=>setFavoritesOpen(true),
-                                className: "px-4 py-2 bg-yellow-500 text-white rounded",
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex-1 flex gap-2",
                                 children: [
-                                    "View Favorites (",
-                                    favoriteDisks.length,
-                                    ")"
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
+                                        value: searchType,
+                                        onChange: (e)=>setSearchType(e.target.value),
+                                        className: "p-2 border border-gray-300 rounded",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                value: "title",
+                                                children: "Search by Title"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/disks/page.tsx",
+                                                lineNumber: 198,
+                                                columnNumber: 15
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                value: "artist",
+                                                children: "Search by Artist"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/disks/page.tsx",
+                                                lineNumber: 199,
+                                                columnNumber: 15
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/disks/page.tsx",
+                                        lineNumber: 193,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        type: "text",
+                                        placeholder: `Search by ${searchType === "title" ? "title" : "artist"}...`,
+                                        value: searchTerm,
+                                        onChange: (e)=>setSearchTerm(e.target.value),
+                                        className: "flex-1 p-2 border border-gray-300 rounded"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/disks/page.tsx",
+                                        lineNumber: 201,
+                                        columnNumber: 13
+                                    }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/disks/page.tsx",
-                                lineNumber: 147,
-                                columnNumber: 13
+                                lineNumber: 192,
+                                columnNumber: 11
                             }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                onClick: ()=>{
-                                    if (cartItems.length > 0) {
-                                        setCartOpen(true);
-                                    }
-                                },
-                                className: "px-4 py-2 bg-blue-500 text-white rounded",
-                                children: "Open Cart"
-                            }, void 0, false, {
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
+                                value: selectedFormat,
+                                onChange: (e)=>setSelectedFormat(e.target.value),
+                                className: "p-2 border border-gray-300 rounded",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                        value: "",
+                                        children: "All Formats"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/disks/page.tsx",
+                                        lineNumber: 215,
+                                        columnNumber: 13
+                                    }, this),
+                                    formats.map((format)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                            value: format,
+                                            children: format
+                                        }, format, false, {
+                                            fileName: "[project]/src/app/disks/page.tsx",
+                                            lineNumber: 217,
+                                            columnNumber: 15
+                                        }, this))
+                                ]
+                            }, void 0, true, {
                                 fileName: "[project]/src/app/disks/page.tsx",
-                                lineNumber: 153,
-                                columnNumber: 13
-                            }, this)
+                                lineNumber: 210,
+                                columnNumber: 11
+                            }, this),
+                            currentUser && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                        onClick: ()=>setFavoritesOpen(true),
+                                        className: "px-4 py-2 bg-yellow-500 text-white rounded",
+                                        children: [
+                                            "View Favorites (",
+                                            favoriteDisks.length,
+                                            ")"
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/disks/page.tsx",
+                                        lineNumber: 223,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                        onClick: ()=>{
+                                            if (cartItems.length > 0) {
+                                                setCartOpen(true);
+                                            }
+                                        },
+                                        className: "px-4 py-2 bg-blue-500 text-white rounded",
+                                        children: "Open Cart"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/disks/page.tsx",
+                                        lineNumber: 229,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true)
                         ]
-                    }, void 0, true)
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/disks/page.tsx",
+                        lineNumber: 191,
+                        columnNumber: 9
+                    }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/disks/page.tsx",
-                lineNumber: 137,
+                lineNumber: 189,
                 columnNumber: 7
             }, this),
             isLoading ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "flex justify-center items-center h-40",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$common$2f$LoadingSpinner$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                     fileName: "[project]/src/app/disks/page.tsx",
-                    lineNumber: 168,
+                    lineNumber: 245,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/disks/page.tsx",
-                lineNumber: 167,
+                lineNumber: 244,
                 columnNumber: 9
             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
                 className: "list-disc",
@@ -894,21 +999,32 @@ const DisksPage = ()=>{
                     children: "No disks found."
                 }, void 0, false, {
                     fileName: "[project]/src/app/disks/page.tsx",
-                    lineNumber: 173,
+                    lineNumber: 250,
                     columnNumber: 13
                 }, this) : filteredDisks.map((disk)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                         className: "mb-2 flex items-center gap-2",
                         children: [
-                            disk.title,
-                            " - ",
-                            disk.label,
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                children: [
+                                    disk.title,
+                                    " - ",
+                                    disk.label,
+                                    " (",
+                                    disk.format,
+                                    ")"
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/disks/page.tsx",
+                                lineNumber: 254,
+                                columnNumber: 17
+                            }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 onClick: ()=>handleToggleFavorite(disk.id),
                                 className: `px-2 py-1 ${favorites.includes(disk.id) ? 'text-yellow-500' : 'text-gray-500'}`,
                                 children: "★"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/disks/page.tsx",
-                                lineNumber: 178,
+                                lineNumber: 255,
                                 columnNumber: 17
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -921,7 +1037,7 @@ const DisksPage = ()=>{
                                 children: "Add to Cart"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/disks/page.tsx",
-                                lineNumber: 184,
+                                lineNumber: 261,
                                 columnNumber: 17
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -930,18 +1046,18 @@ const DisksPage = ()=>{
                                 children: "Details"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/disks/page.tsx",
-                                lineNumber: 190,
+                                lineNumber: 267,
                                 columnNumber: 17
                             }, this)
                         ]
                     }, disk.id, true, {
                         fileName: "[project]/src/app/disks/page.tsx",
-                        lineNumber: 176,
+                        lineNumber: 253,
                         columnNumber: 15
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/app/disks/page.tsx",
-                lineNumber: 171,
+                lineNumber: 248,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$CartModal$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -956,7 +1072,7 @@ const DisksPage = ()=>{
                 favorites: favorites
             }, void 0, false, {
                 fileName: "[project]/src/app/disks/page.tsx",
-                lineNumber: 201,
+                lineNumber: 278,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$DiskDetailsModal$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -965,7 +1081,7 @@ const DisksPage = ()=>{
                 disk: selectedDisk
             }, void 0, false, {
                 fileName: "[project]/src/app/disks/page.tsx",
-                lineNumber: 212,
+                lineNumber: 289,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$FavoritesModal$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -976,13 +1092,13 @@ const DisksPage = ()=>{
                 onAddToCart: addToCart
             }, void 0, false, {
                 fileName: "[project]/src/app/disks/page.tsx",
-                lineNumber: 217,
+                lineNumber: 294,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/disks/page.tsx",
-        lineNumber: 128,
+        lineNumber: 181,
         columnNumber: 5
     }, this);
 };

@@ -78,11 +78,11 @@ const LoginPage = () => {
           type={"password"}
           placeholder="Password"
         />
-        <div>
+        {/* <div>
           <button className="underline font-normal text-xl">
             Forgot Password?
           </button>
-        </div>
+        </div> */}
 
         <button 
           type="submit" 
