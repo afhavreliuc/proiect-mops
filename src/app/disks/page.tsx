@@ -9,17 +9,13 @@ import CartModal from "../../components/CartModal";
 import FavoritesModal from "../../components/FavoritesModal";
 import Notification from '../../components/common/Notification';
 import LoadingSpinner from "@/components/common/LoadingSpinner";
+import getDisks from "../api/requests/disk";
 
 const DisksPage = () => {
   const router = useRouter();
   const { currentUser } = useSelector((state: RootState) => state.auth);
   const [isLoading, setIsLoading] = useState(true);
-
-  const [disks, setDisks] = useState<any[]>([
-    { id: 1, title: "Disk One", label: "Label A", price: 10, details: "This is a great album with amazing tracks." },
-    { id: 2, title: "Disk Two", label: "Label B", price: 15, details: "A classic collection of timeless songs." },
-    { id: 3, title: "Disk Three", label: "Label C", price: 20, details: "An eclectic mix of genres and styles." },
-  ]);
+  const [disks, setDisks]= useState<any[]>([ ]);
   const [searchTerm, setSearchTerm] = useState("");
   const [isCartOpen, setCartOpen] = useState(false);
   const [isDetailsOpen, setDetailsOpen] = useState(false);
@@ -40,20 +36,27 @@ const DisksPage = () => {
   } | null>(null);
 
   useEffect(() => {
-    // Simulate loading disks data
-    const loadDisks = async () => {
-      try {
-        await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API call
-        setDisks([
-          { id: 1, title: "Disk One", label: "Label A", price: 10, details: "This is a great album with amazing tracks." },
-          { id: 2, title: "Disk Two", label: "Label B", price: 15, details: "A classic collection of timeless songs." },
-          { id: 3, title: "Disk Three", label: "Label C", price: 20, details: "An eclectic mix of genres and styles." },
-        ]);
-      } finally {
+    setIsLoading(true); 
+  
+    getDisks()
+      .then((fetchedDisks: any[]) => {
+        console.log("Fetched disks:", fetchedDisks);  
+        const transformedDisks = fetchedDisks.map((disk: any) => ({
+          id: disk.idDisc,
+          title: disk.title,
+          label: disk.label,
+          price: disk.price,
+          format: disk.format,
+        }));
+  
+        setDisks(transformedDisks);
+      })
+      .catch((error: any) => {
+        console.error("Error fetching disks:", error);
+      })
+      .finally(() => {
         setIsLoading(false);
-      }
-    };
-    loadDisks();
+      });
   }, []);
 
   const favoriteDisks = disks.filter(disk => favorites.includes(disk.id));
