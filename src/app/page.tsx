@@ -1,7 +1,6 @@
 "use client";
 
-import AudioRecorder from "@/components/AudioRecorder";
-import ShazamPage from "@/components/shazam/ShazamModal";
+import ShazamModal from "@/components/shazam/ShazamModal";
 import { faSpotify } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -31,7 +30,7 @@ export default function Home() {
               <span>Log In With Spotify</span>
               <span></span>
             </button>
-            <ShazamPage />
+            <ShazamModal />
           </div>
           <div className="text-white text-xl font-extralight drop-shadow-lg">
             Log in to Spotify so we can analyze your favorites list and compare
@@ -42,7 +41,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <AudioRecorder />
     </div>
   );
 }
