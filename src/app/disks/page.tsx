@@ -9,7 +9,7 @@ import CartModal from "../../components/CartModal";
 import FavoritesModal from "../../components/FavoritesModal";
 import Notification from '../../components/common/Notification';
 import LoadingSpinner from "@/components/common/LoadingSpinner";
-import getDisks from "../api/requests/disk";
+import getDisks, { searchDiscsByArtist, searchDiscsByGenre, searchDiscsByTitle } from "../api/requests/disk";
 
 const DisksPage = () => {
   const router = useRouter();
@@ -17,7 +17,7 @@ const DisksPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [disks, setDisks]= useState<any[]>([ ]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [searchType, setSearchType] = useState<"title" | "artist">("title");
+  const [searchType, setSearchType] = useState<"title" | "artist" | "genre">("title");
   const [selectedFormat, setSelectedFormat] = useState<string>("");
   const [isCartOpen, setCartOpen] = useState(false);
   const [isDetailsOpen, setDetailsOpen] = useState(false);
@@ -102,13 +102,15 @@ const DisksPage = () => {
   };
 
   // Filter disks based on all criteria
-  const filteredDisks = disks.filter(disk => {
-    const matchesSearch = searchType === "title" 
-      ? disk.title.toLowerCase().includes(searchTerm.toLowerCase())
-      : disk.label.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesFormat = !selectedFormat || disk.format === selectedFormat;
-    return matchesSearch && matchesFormat;
-  });
+  //const filteredDisks = disks.filter(disk => {
+    // const matchesSearch = searchType === "title" 
+    //   ? disk.title.toLowerCase().includes(searchTerm.toLowerCase())
+    //   : disk.label.toLowerCase().includes(searchTerm.toLowerCase());
+    // const matchesFormat = !selectedFormat || disk.format === selectedFormat;
+  //  return matchesSearch && matchesFormat;
+  // return disks;
+ // });
+
 
   // Shipping cost logic
   const shippingCost = totalPrice >= 40 ? 0 : 5;
@@ -137,6 +139,72 @@ const DisksPage = () => {
     });
   };
 
+  const onSearch = async () => {
+  //  console.log("Searching for:", searchTerm, "by", searchType, "with format", selectedFormat);
+    
+    if (searchTerm == null || searchTerm.trim() === "") {
+      try {
+        const artistDisks = await getDisks();  // Fetch all disks if no search term
+        const filteredArtistDisks = filterDisksByFormat(artistDisks, selectedFormat); // Apply format filter
+        setDisks(filteredArtistDisks);  // Set the filtered disks to state
+      } catch (err) {
+        setDisks([]);  // Clear the disks state in case of error
+        console.error(err);
+      }
+      return; // Return early to avoid unnecessary further logic
+    }
+
+
+    if (searchType === "artist") {
+
+      try {
+        const artistDisks = await searchDiscsByArtist(searchTerm); 
+        const filteredArtistDisks = filterDisksByFormat(artistDisks, selectedFormat);
+        setDisks(filteredArtistDisks); 
+      } catch (err) {
+       // setError("Failed to fetch discs by artist.");
+        setDisks([]); 
+        console.error(err);
+      } 
+    } else {
+
+      if (searchType === "genre") {
+
+        try {
+          const genreDisks = await searchDiscsByGenre(searchTerm); 
+          const filteredGenreDisks = filterDisksByFormat(genreDisks, selectedFormat);
+          setDisks(filteredGenreDisks); 
+        } catch (err) {
+         // setError("Failed to fetch discs by artist.");
+          setDisks([]); 
+          console.error(err);
+        } 
+      } else if(searchType =='title'){
+        try {
+          const titleDisks = await searchDiscsByTitle(searchTerm);
+          const filteredTitleDisks = filterDisksByFormat(titleDisks, selectedFormat);
+          setDisks(filteredTitleDisks);
+          console.log('whatt?')
+        } catch (err) {
+         // setError("Failed to fetch discs by artist.");
+          setDisks([]); 
+          console.error(err);
+          console.log('whatt?')
+        } 
+      }
+ 
+    }
+  };
+  function filterDisksByFormat(disks: any[], selectedFormat: string) {
+    return disks.filter(disk => {
+      // Check if the disk's format matches the selected format
+      const matchesFormat = !selectedFormat || disk.format === selectedFormat;
+  
+      // Return true if the disk matches both the format and the additional filter
+      return matchesFormat;
+    });
+  }
+
   return (
     <div className="flex flex-col items-center p-4">
       {notification && (
@@ -152,15 +220,16 @@ const DisksPage = () => {
           <div className="flex-1 flex gap-2">
             <select
               value={searchType}
-              onChange={(e) => setSearchType(e.target.value as "title" | "artist")}
+              onChange={(e) => setSearchType(e.target.value as "title" | "artist" | "genre")}
               className="p-2 border border-gray-300 rounded"
             >
               <option value="title">Search by Title</option>
               <option value="artist">Search by Artist</option>
+              <option value="genre">Search by Genre</option>
             </select>
             <input
               type="text"
-              placeholder={`Search by ${searchType === "title" ? "title" : "artist"}...`}
+              placeholder={`Search by ${searchType}...`} 
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="flex-1 p-2 border border-gray-300 rounded"
@@ -177,7 +246,12 @@ const DisksPage = () => {
               <option key={format} value={format}>{format}</option>
             ))}
           </select>
-
+          <button
+          onClick={onSearch} // onSearch function to handle the search logic
+          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+          >
+          Search
+          </button>
           {currentUser && (
             <>
               <button
@@ -206,10 +280,10 @@ const DisksPage = () => {
         </div>
       ) : (
         <ul className="list-disc">
-          {filteredDisks.length === 0 ? (
+          {disks.length === 0 ? (
             <li className="text-red-500">No disks found.</li>
           ) : (
-            filteredDisks.map(disk => (
+            disks.map(disk => (
               <li key={disk.id} className="mb-2 flex items-center gap-2">
                 <span>{disk.title} - {disk.label} ({disk.format})</span>
                 <button
