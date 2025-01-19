@@ -9,39 +9,13 @@ import CartModal from "../../components/CartModal";
 import FavoritesModal from "../../components/FavoritesModal";
 import Notification from '../../components/common/Notification';
 import LoadingSpinner from "@/components/common/LoadingSpinner";
+import getDisks from "../api/requests/disk";
 
 const DisksPage = () => {
   const router = useRouter();
   const { currentUser } = useSelector((state: RootState) => state.auth);
   const [isLoading, setIsLoading] = useState(true);
-
-  const [disks, setDisks] = useState<any[]>([
-    { 
-      id: 4, 
-      title: "Recent door customer apply", 
-      label: "Coleman-Clark", 
-      price: 35, 
-      format: "CD",
-      details: "A collection of contemporary tracks exploring modern themes." 
-    },
-    { 
-      id: 15, 
-      title: "Wind house financial language news", 
-      label: "Lopez-Williams", 
-      price: 49, 
-      format: "Digital",
-      details: "An innovative fusion of electronic and acoustic elements." 
-    },
-    { 
-      id: 19, 
-      title: "Consider education", 
-      label: "Valenzuela, McIntyre and Cobb", 
-      price: 17, 
-      format: "CD",
-      details: "A thoughtful compilation of educational and inspirational music." 
-    }
-  ]);
-
+  const [disks, setDisks]= useState<any[]>([ ]);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchType, setSearchType] = useState<"title" | "artist">("title");
   const [selectedFormat, setSelectedFormat] = useState<string>("");
@@ -67,41 +41,27 @@ const DisksPage = () => {
   const formats = Array.from(new Set(disks.map(disk => disk.format)));
 
   useEffect(() => {
-    // Simulate loading disks data
-    const loadDisks = async () => {
-      try {
-        await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API call
-        setDisks([
-          { 
-            id: 4, 
-            title: "Recent door customer apply", 
-            label: "Coleman-Clark", 
-            price: 35, 
-            format: "CD",
-            details: "A collection of contemporary tracks exploring modern themes." 
-          },
-          { 
-            id: 15, 
-            title: "Wind house financial language news", 
-            label: "Lopez-Williams", 
-            price: 49, 
-            format: "Digital",
-            details: "An innovative fusion of electronic and acoustic elements." 
-          },
-          { 
-            id: 19, 
-            title: "Consider education", 
-            label: "Valenzuela, McIntyre and Cobb", 
-            price: 17, 
-            format: "CD",
-            details: "A thoughtful compilation of educational and inspirational music." 
-          }
-        ]);
-      } finally {
+    setIsLoading(true); 
+  
+    getDisks()
+      .then((fetchedDisks: any[]) => {
+        console.log("Fetched disks:", fetchedDisks);  
+        const transformedDisks = fetchedDisks.map((disk: any) => ({
+          id: disk.idDisc,
+          title: disk.title,
+          label: disk.label,
+          price: disk.price,
+          format: disk.format,
+        }));
+  
+        setDisks(transformedDisks);
+      })
+      .catch((error: any) => {
+        console.error("Error fetching disks:", error);
+      })
+      .finally(() => {
         setIsLoading(false);
-      }
-    };
-    loadDisks();
+      });
   }, []);
 
   const favoriteDisks = disks.filter(disk => favorites.includes(disk.id));
