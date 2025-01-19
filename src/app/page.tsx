@@ -3,6 +3,7 @@
 import ShazamModal from "@/components/shazam/ShazamModal";
 import { faSpotify } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import SpotifyButton from "@/components/spotify/SpotifyButton";
 
 export default function Home() {
   return (
@@ -25,15 +26,11 @@ export default function Home() {
 
         <div className="pt-12 max-w-[848px]">
           <div className="w-full flex justify-between gap-12 py-12 text-white text-3xl">
-            <button className="px-2 font-normal w-full text-xl border h-12 flex justify-between items-center">
-              <FontAwesomeIcon icon={faSpotify} className="h-7 w-7" />
-              <span>Log In With Spotify</span>
-              <span></span>
-            </button>
+            <SpotifyButton />
             <ShazamModal />
           </div>
           <div className="text-white text-xl font-extralight drop-shadow-lg">
-            Log in to Spotify so we can analyze your favorites list and compare
+            Connect to Spotify so we can analyze your favorites list and compare
             it to our collection. This allows us to create a selection tailored
             specifically for you. Once you're logged in, we'll identify albums
             that bring together as many of your favorite tracks as possible,
